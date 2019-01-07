@@ -1,0 +1,10 @@
+<div class="ui container">
+  <h1 class="ui header">Youtube Search app</h1>
+  <div *ngIf="loading">Loading...</div>
+  
+  <app-search-box
+    (loading)="loading = $event"
+    (results)="updateResults($event)"
+  >
+  </app-search-box>
+</div>
