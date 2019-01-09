@@ -1,10 +1,19 @@
 <div class="ui container">
-  <h1 class="ui header">Youtube Search app</h1>
-  <div *ngIf="loading">Loading...</div>
-  
-  <app-search-box
-    (loading)="loading = $event"
-    (results)="updateResults($event)"
-  >
-  </app-search-box>
+  <div class="ui vertical segment">
+    <h1 class="ui header">Youtube Search app</h1>
+    <div *ngIf="loading">Loading...</div>
+    <app-search-box
+      (loading)="loading = $event"
+      (results)="updateResults($event)"
+    >
+    </app-search-box>
+  </div>
+  <div class="result-contener">
+    <div class="ui link cards">
+      <app-search-result
+        *ngFor="let result of results"
+        [result]="result"
+      ></app-search-result>
+    </div>
+  </div>
 </div>

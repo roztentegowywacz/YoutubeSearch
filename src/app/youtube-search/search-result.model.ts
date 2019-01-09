@@ -9,7 +9,7 @@ export class SearchResult {
         this.id             = obj && obj.id             || null;
         this.title          = obj && obj.title          || null;
         this.description    = obj && obj.description    || null;
-        this.thubnailUrl    = obj && obj.thumbnailUrl   || null;
+        this.thubnailUrl    = obj && obj.thubnailUrl    || null;
         this.videoUrl       = obj && obj.videoUrl       ||
             `https://www.youtube.com/watch?v=${this.id}`;
     }

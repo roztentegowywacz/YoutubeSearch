@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, ElementRef } from '@angular/core';
 import { SearchResult } from '../search-result.model';
 import { YoutubeSearchService } from '../youtube-search.service';
-import { fromEvent, Observable } from 'rxjs';
+import { fromEvent } from 'rxjs';
 import { map, debounceTime, filter, tap, switchAll } from 'rxjs/operators';
 
 @Component({
@@ -12,10 +12,8 @@ export class SearchBoxComponent implements OnInit {
   @Output() loading: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() results: EventEmitter<SearchResult[]> = new EventEmitter<SearchResult[]>();
 
-  constructor(
-    private youtube: YoutubeSearchService,
-    private el: ElementRef
-  ) { }
+  constructor(private youtube: YoutubeSearchService,
+              private el: ElementRef) { }
 
   ngOnInit(): void {
     const obs = fromEvent(this.el.nativeElement, 'keyup')

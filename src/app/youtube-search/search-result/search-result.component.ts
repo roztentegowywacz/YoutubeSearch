@@ -1,0 +1,11 @@
+import { Component, Input, HostBinding } from '@angular/core';
+import { SearchResult } from '../search-result.model';
+
+@Component({
+  selector: 'app-search-result',
+  templateUrl: './search-result.component.html'
+})
+export class SearchResultComponent {
+  @Input() result: SearchResult;
+  @HostBinding('attr.class') cssClass = 'ui card';
+}

@@ -23,7 +23,7 @@ export class YoutubeSearchService {
       `key=${this.apiKey}`,
       `part=snippet`,
       `type=video`,
-      `maxResults=10`
+      `maxResults=4`
     ].join('&');
     const queryUrl = `${this.apiUrl}?${params}`;
 
