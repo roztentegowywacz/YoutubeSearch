@@ -17,7 +17,6 @@ export class YoutubeSearchService {
   ) { }
 
   search(query: string): Observable<SearchResult[]> {
-    console.log('Query: ', query);
     const params: string = [
       `q=${query}`,
       `key=${this.apiKey}`,
@@ -29,7 +28,8 @@ export class YoutubeSearchService {
 
     return this.http.get(queryUrl)
       .pipe(map(response => {
-        return response['items'].map(item => {
+        console.log('response: ', response);
+        return <any>response['items'].map(item => {
           return new SearchResult({
             id: item.id.videoId,
             title: item.snippet.title,
